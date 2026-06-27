@@ -15,9 +15,17 @@
   --margin-inline: 12px;
 }
 
+[class$="--tablet"],
+[class$="--desktop"] {
+  display: none;
+}
+
 html,
 body {
   overflow-x: hidden;
+  max-width: 1440px;
+  margin-inline: auto;
+  /* border: 2px solid blue; */
 }
 
 * {
@@ -90,7 +98,7 @@ img {
   margin-top: 64px;
 }
 
-.hero__image img {
+.hero__image--mobile {
   border-radius: 16px;
   transform: translateX(calc(8px + var(--margin-inline)));
 }
@@ -104,7 +112,7 @@ img {
   margin-inline: var(--margin-inline);
 }
 
-.description__img1 {
+.description__img1--mobile {
   width: 100%;
 }
 
@@ -122,11 +130,11 @@ img {
   position: absolute;
   inset: 0;
   background: var(--primary-color-500);
-  opacity: 0.4;
+  opacity: 0.7;
   pointer-events: none;
 }
 
-.description__img2 {
+.description__img2--mobile {
   width: 220px;
   height: 193px;
   border-radius: 16px;
@@ -177,4 +185,201 @@ footer {
   margin-top: 64px;
   margin-bottom: 32px;
   text-align: center;
+}
+
+@media (min-width: 600px) {
+  [class$="--mobile"] {
+    display: none;
+  }
+
+  .hero__image--tablet {
+    display: block;
+    max-width: 480px;
+    max-height: 425px;
+    border-radius: 16px;
+  }
+
+  .hero__content {
+    margin-top: 64px;
+  }
+
+  .hero__image {
+    margin-top: 0px;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(350px, 1fr) 1fr;
+  }
+
+  .description__img1--overlay {
+    width: 215px;
+    height: 320px;
+    transform: none;
+  }
+
+  .description__img1--tablet {
+    display: block;
+    height: 100%;
+  }
+
+  .description__img2--tablet {
+    display: block;
+    max-width: 445px;
+    max-height: 320px;
+    border-radius: 16px;
+    margin-left: 32px;
+  }
+
+  .description {
+    display: grid;
+    grid-template-columns: 215px 1fr;
+  }
+
+  .description__content {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 215px 1fr;
+  }
+
+  .description__img-container {
+    grid-column: 1 / -1;
+  }
+
+  .description__title,
+  .description__text {
+    margin-top: 40px;
+  }
+
+  .description__text {
+    width: 80%;
+    grid-column: 2 / -1;
+    justify-self: center;
+  }
+}
+
+@media (min-width: 1000px) {
+  [class$="--mobile"],
+  [class$="--tablet"] {
+    display: none;
+  }
+  [class$="--desktop"],
+  [class*="hiddenimg"] {
+    display: block;
+  }
+
+  header {
+    width: 78%;
+    justify-self: center;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(500px, 1fr) 1fr 1fr;
+    column-gap: 32px;
+    overflow-x: hidden;
+    max-width: 1200px;
+    /* border: 2px solid brown; */
+    margin-inline: auto;
+  }
+
+  .hero > * {
+    transform: translateX(40px);
+    /* border: 2px solid green; */
+  }
+
+  .hero__title {
+    font-size: 48px;
+  }
+
+  .hero__content {
+    margin-right: 100px;
+    /* border: 2px solid cyan; */
+  }
+
+  .hero__hiddenimg {
+    width: 255px;
+    height: 240px;
+  }
+
+  .hero__image--desktop {
+    border-radius: 16px;
+    max-width: 540px;
+    max-width: 480px;
+  }
+
+  .description__img2--desktop {
+    max-width: 445px;
+    max-height: 480px;
+    border-radius: 16px;
+    margin-left: 32px;
+  }
+
+  .description {
+    display: grid;
+    grid-template-columns: 255px 255px 450px 1fr;
+    transform: translateX(-140px);
+    margin-top: 32px;
+  }
+
+  .description__hiddenimg {
+    grid-column: 1 / 2;
+    align-self: end;
+  }
+
+  .description__img1--desktop {
+    height: 100%;
+  }
+
+  .description__img1--overlay {
+    height: 100%;
+  }
+
+  .description__img-container {
+    grid-column: 2 / 4;
+  }
+
+  .description__content {
+    display: block;
+    grid-column: 4 / 5;
+    align-self: center;
+  }
+
+  .description__text,
+  .description__title {
+    justify-self: start;
+    width: 60%;
+    margin-left: 48px;
+  }
+
+  .features__grid {
+    display: grid;
+    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 40px;
+    margin-inline: auto;
+  }
+}
+
+/* Hover States */
+
+.button--topbar:hover {
+  background: var(--secondary-color-900);
+  color: white;
+}
+
+.button--topbar:active {
+  background: var(--neutral-color-200);
+  color: var(--secondary-color-900);
+  outline: 2px solid var(--secondary-color-900);
+}
+
+.button--hero:hover {
+  background: var(--primary-color-300);
+}
+
+.button--hero:active {
+  background: var(--primary-color-500);
+  border: 2px solid white;
+  outline: 2px solid var(--primary-color-500);
 }
