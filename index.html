@@ -11,6 +11,12 @@
       href="./assets/favicon-32x32.png"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>By Pietro | Typemaster pre-launch landing page</title>
   </head>
   <body>
@@ -43,14 +49,21 @@
         class="description__hiddenimg"
         alt="grey square"
       />
-      <img
-        src="assets/mobile/image-phone-and-keyboard.jpg"
-        alt="phone and keyboard"
-      />
-      <img
-        src="assets/mobile/image-glass-and-keyboard.jpg"
-        alt="glass and keyboard"
-      />
+
+      <div class="description__img-container">
+        <div class="description__img1--overlay">
+          <img
+            src="assets/mobile/image-phone-and-keyboard.jpg"
+            alt="phone and keyboard"
+            class="description__img1"
+          />
+        </div>
+        <img
+          src="assets/mobile/image-glass-and-keyboard.jpg"
+          alt="glass and keyboard"
+          class="description__img2"
+        />
+      </div>
       <h2 class="description__title">Mechanical Wireless Keyboard</h2>
       <p class="description__text">
         The Typemaster keyboard boasts top-notch build and practical design. It
@@ -103,7 +116,7 @@
           <img
             src="assets/shared/icon-light.svg"
             alt="lightbulb"
-            class="feature__img"
+            class="features__img"
           />
           <h3 class="features__title">RGB Backlit Modes</h3>
           <p class="features__text">
